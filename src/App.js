@@ -1,26 +1,29 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
+import Home from './components/Home.js';
+import List from './components/List.js';
+import Login from './components/Login.js';
+import Signup from './components/Signup.js';
+import ResetPassword from './components/ResetPassword.js';
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+    const App = () => (
+      <div>
+        <Switch>
+          <Route exact path='/' component={Home}/>
+          <Route path='/list' component={List}/>
+          <Route path='/log_in' component={Login}/>
+          <Route path='/sign_up' component={Signup}/>
+          <Route path='/reset_password' component={ResetPassword}/>
+        </Switch>
       </div>
+    )
+    return (
+      <Switch>
+        <App/>
+      </Switch>
     );
   }
 }
